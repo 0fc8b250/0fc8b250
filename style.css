@@ -39,7 +39,7 @@
 			@-o-keyframes fadeIn			{ from { opacity: 0; } to { opacity: 1; } }
 			@-ms-keyframes fadeIn		{ from { opacity: 0; } to { opacity: 1; } }
 
-			@media (orientation: landscape) { .content { width: 25%; } }
+			@media (orientation: landscape) { .content { margin: 10% auto; width: 25%; } }
 
 			@media (pointer: fine) { 
 				.b:hover + .bar { opacity: 0; } 
@@ -47,10 +47,10 @@
 				.bar { opacity: 1; transition: 0.2s ease; }
 			}
 
-	//		@media (hover: none) {
+			@media (hover: none) {
 				.page:active .bar { opacity: 0; } 
-				.p { opacity: 1; transition: 0.2s ease; }
-					@media (orientation: portrait){ .content { width: 50%; } }
+				.bar { opacity: 1; transition: 0.2s ease; }
+					@media (orientation: portrait){ .content { margin: 30% auto; width: 50%; } }
 
 			}
 
@@ -60,10 +60,10 @@
 					.bar:hover { opacity: 0; } 
 					.bar { opacity: 1; transition: 0.2s ease; }
 				}
-	//		@media (-moz-touch-enabled:1) { 
-					.h:active .p { opacity: 1; }
-					.p { opacity: 1; transition: 0.2s ease; }
-					@media (orientation: portrait){ .content { width: 50%; } }
+			@media (-moz-touch-enabled:1) { 
+					.page:active .bar { opacity: 0; }
+					.bar { opacity: 1; transition: 0.2s ease; }
+					@media (orientation: portrait){ .content { margin: 30% auto; width: 50%; } }
 				}
 			}
 
