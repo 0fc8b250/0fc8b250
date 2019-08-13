@@ -50,7 +50,7 @@
 			@media (hover: none) {
 				.page:active .bar { opacity: 0; } 
 				.bar { opacity: 1; transition: 0.2s ease; }
-					@media (orientation: portrait){ .content { margin: 30% auto; width: 50%; } }
+					@media (orientation: portrait){ .content { margin: 30% auto; width: 50%; } svg { width:100%; height:auto; }}
 
 			}
 
@@ -63,7 +63,7 @@
 			@media (-moz-touch-enabled:1) { 
 					.page:active .bar { opacity: 0; }
 					.bar { opacity: 1; transition: 0.2s ease; }
-					@media (orientation: portrait){ .content { margin: 30% auto; width: 50%; } }
+					@media (orientation: portrait){ .content { margin: 30% auto; width: 50%; } svg { width:100%; height:auto; }}
 				}
 			}
 
