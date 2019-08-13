@@ -36,7 +36,7 @@
 				-ms-animation: 		fadeIn ease 5s;
 			}
 
-			.content { position:relative; margin: 50% auto; width:25%;  }
+			.content { position:relative; margin: 10% auto; width:25%;  }
 
 			@keyframes fadein				{ from { opacity: 0; } to { opacity: 1; } }
 			@-moz-keyframes fadeIn		{ from { opacity: 0; } to { opacity: 1; } }
@@ -44,7 +44,7 @@
 			@-o-keyframes fadeIn			{ from { opacity: 0; } to { opacity: 1; } }
 			@-ms-keyframes fadeIn		{ from { opacity: 0; } to { opacity: 1; } }
 
-			@media (orientation: landscape) { .content { width: 25%; } }
+			@media (orientation: landscape) { .content { margin: 10% auto; width: 25%; } }
 
 			@media (pointer: fine) { 
 				.threeE:hover + .filter { opacity: 0; } 
@@ -55,7 +55,7 @@
 			@media (hover: none) {
 				.page:active .filter { opacity: 0; } 
 				.filter { opacity: 1; transition: 0.2s ease; }
-					@media (orientation: portrait){ .content { width: 50%; } }
+					@media (orientation: portrait){ .content { margin: 50% auto; width: 50%; } }
 			}
 
 			@-moz-document url-prefix() {
@@ -67,15 +67,14 @@
 			}
 
 			@media (-moz-touch-enabled:1) { 
-					.page:active .filter { opacity: 0; }
-					.filter { opacity: 1; transition: 0.2s ease; }
-					@media (orientation: portrait){ .content { width: 50%; } }
-				}
+				.page:active .filter { opacity: 0; }
+				.filter { opacity: 1; transition: 0.2s ease; }
+				@media (orientation: portrait){ .content { margin: 50% auto; width: 50%; } }
 			}
 
 			.p {
 				position:absolute; padding-top:120%; width:100%;
-				background: rgb(100%,0%,0%) url('b3e.gif') center / 100% no-repeat;
+				background: url('b3e.gif') center / 100% no-repeat;
 
 				-ms-interpolation-mode:		nearest-neighbor;
 				image-rendering:				-webkit-optimize-contrast;
@@ -83,7 +82,7 @@
 				image-rendering:				pixelated;
 			}
 
-			svg { width:100%; height:auto; image-rendering:				pixelated; }
+			svg { width:100%; height:auto; }
 
 		</style>
 
@@ -92,7 +91,7 @@
 		<div class="page">
 			<div class="content">
 				<div class="p"></div>
-				<div style="position:absolute; background-color: rgb(0%,100%,0%); width:100%;">
+				<div style="position:absolute; width:100%;">
 					<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1200" viewbox="0 0 1000 1200" version="1.1">
 
 						<defs>
