@@ -1,6 +1,12 @@
 body { 
 	background-color: black; width: 100%; height: 100%; overflow: hidden;
 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: linear-gradient(#320043,black, black);
+
+	margin:0;
+
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -12,11 +18,11 @@ body {
 
 body::after{
 	position: absolute; width: 0; height: 0; overflow: hidden; z-index: -1;
-	content: url("b3e.gif");
+	content: url("b3e.gif") url("b3e.svg");
 }
 
-.page {
-	position: absolute; height: 100%; width: 100%;
+.h {
+	min-height:100%; width:100%; display:flex;
 
 	animation: fadein 5s; 
 	animation: fadeIn ease 5s;
@@ -26,52 +32,51 @@ body::after{
 	-ms-animation: fadeIn ease 5s;
 }
 
-.content { position:relative; width:25%; margin: 10% auto; }
-
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 @-moz-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @-webkit-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @-o-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @-ms-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-@media (orientation: landscape) { .content { margin: 10% auto; width: 25%; } }
-
-@media (pointer: fine) { 
-	.threeE:hover + .filter { opacity: 0; } 
-	.filter:hover { opacity: 0; } 
-	.filter { opacity: 1; transition: 0.2s ease; }
-}
-
-@media (hover: none) {
-	.page:active .filter { opacity: 0; } 
-	.filter { opacity: 1; transition: 0.2s ease; }
-	@media (orientation: portrait){ .content { margin: 50% auto; width: 50%; } }
-}
-
-@-moz-document url-prefix() {
-	@media (-moz-touch-enabled:0) { 
-		.threeE:hover + .filter { opacity: 0; } 
-		.filter:hover { opacity: 0; } 
-		.filter { opacity: 1; transition: 0.2s ease; }
-	}
-}
-
-@media (-moz-touch-enabled:1) { 
-	.page:active .filter { opacity: 0; }
-	.filter { opacity: 1; transition: 0.2s ease; }
-	@media (orientation: portrait){ .content { margin: 50% auto; width: 50%; } }
+.s {
+	height:auto; display: block; margin: auto; vertical-align:middle;
+	-webkit-mask-image: linear-gradient(to bottom, black 58.33333%, rgba(0, 0, 0, 0.25) 58.33333%, rgba(0, 0, 0, 0) 98.75%);
+	mask-image: linear-gradient(to bottom, black 58.33333%, rgba(0, 0, 0, 0.25) 58.33333%, rgba(0, 0, 0, 0) 98.75%);
 }
 
 .p {
-	position:absolute; padding-top:120%; width:100%;
-	background: url('b3e.gif') center / 100% no-repeat;
-
 	-ms-interpolation-mode: nearest-neighbor;
 	image-rendering: -webkit-optimize-contrast;
 	image-rendering: -moz-crisp-edges;
 	image-rendering: pixelated;
+	clip-path: url(#b);
 }
 
-.q { position:absolute; width:100%; }
+@media (orientation: landscape) { .s { width: 25%; }}
 
-svg { width:100%; height:auto; }
+@media (pointer: fine) { 
+	.t:hover + .f { fill-opacity: 0; } 
+	.f:hover { fill-opacity: 0; } 
+	.f { fill-opacity: 0.5; transition: 0.2s ease; }
+}
+
+@media (hover: none) {
+	.h:active .f { fill-opacity: 0; } 
+	.f { fill-opacity: 0.5; transition: 0.2s ease; }
+	@media (orientation: portrait){ .s { width: 50%; } }
+}
+
+@-moz-document url-prefix() {
+	@media (-moz-touch-enabled:0) { 
+		.s { width: 25%; }
+		.t:hover + .f { fill-opacity: 0; } 
+		.f:hover { fill-opacity: 0; } 
+		.f { fill-opacity: 0.5; transition: 0.2s ease; }
+	}
+}
+
+@media (-moz-touch-enabled:1) { 
+	.h:active .f { fill-opacity: 0; }
+	.f { fill-opacity: 0.5; transition: 0.2s ease; }
+	@media (orientation: portrait){  .s { width: 50%;} }
+}
