@@ -18,17 +18,51 @@
 		<link rel="manifest" href="/manifest.json"/>
 		<meta name="msapplication-TileColor" content="#000000"/>
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
-		<meta name="theme-color" content="#ffffff"/>
+		<meta name="theme-color" content="#000000"/>
+		<script>
+			function activate() { 
+				document.getElementById("bg").style.opacity= '1'; 
+				document.getElementById("glow").style.opacity= '1';
+				document.getElementById("glowR").style.opacity= '1';
+			}
+			function deactivate() { 
+				document.getElementById("bg").style.opacity= '0';
+				document.getElementById("glow").style.opacity= '0';
+				document.getElementById("glowR").style.opacity= '0';
+			}
+		</script>
 	</head>
 	<body>
-		<div class="h">
-			<svg viewbox="0 0 1000 1200" class="s">
-				<defs><clipPath id="b"><use href="b3e.svg#b"/></clipPath></defs>
-				<use href="b3e.svg#p" class="p"/>
-				<use href="b3e.svg#t" class="t"/>
-				<use href="b3e.svg#f" class="f"/>
-				<use href="b3e.svg#r" class="r"/>
+		<div class="container">			
+			<svg viewbox="-50 -50 1100 1300" class="s">
+				<defs>
+					<clipPath id="bClip"><use xlink:href="b3e.svg#b1" x="15" y="14.1"  fill="white"/></clipPath>
+					<linearGradient id="gradient" gradientTransform="rotate(90)" >
+					  <stop offset="0" stop-color="white" stop-opacity="0" />  
+					  <stop offset="1" stop-color="white" stop-opacity="0.25" /> 
+					</linearGradient>
+
+					<mask id="gradient-mask"><rect x="0" y="215" width="100%" height="500" fill="url(#gradient)" stroke-width="0"/></mask>  
+					<filter id="glow1"><feGaussianBlur in="SourceGraphic" stdDeviation="02"/></filter>
+					<filter id="glow2"><feGaussianBlur in="SourceGraphic" stdDeviation="30"/></filter>
+					<g id="bCombo">
+						<image xlink:href="b3e.gif" class="bPixClip" height="1800" width="1500" />
+						<use xlink:href="b3e.svg#b1" x="15" y="14.1" fill-opacity="0"/>
+					</g>
+				</defs>
+				<use href="b3e.svg#trigger" class="trigger" onmouseover="activate()" onmouseout="deactivate()" />
+				<g class="b3e" transform="translate(0 1400) scale(1 -1)" mask="url(#gradient-mask)" >
+					<use href="#bCombo" />
+					<use href="b3e.svg#t" filter="url(#glow1)" class="glow1"/>
+					<use href="b3e.svg#t" filter="url(#glow2)" class="glow" id="glowR" style="opacity: 0"/>
+				</g>
+				<g class="b3e" style="pointer-events:none;">
+					<use href="#bCombo"  />
+					<use href="b3e.svg#t" filter="url(#glow1)" class="glow1"/>
+					<use href="b3e.svg#t" filter="url(#glow2)" class="glow" id="glow" style="opacity: 0"/>
+				</g>
 			</svg>
 		</div>
+		<div id="bg" class="bg"></div>	
 	</body>
 </html>
